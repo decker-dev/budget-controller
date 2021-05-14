@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {generate} from 'shortid'
 import Error from "./Error";
-const Form = ({addNewExpense}) => {
+const Form = ({setExpense,serCreateExpense}) => {
   const [expenseName, setExpenseName] = useState("");
   const [amountSpent, setAmountSpent] = useState(0);
   const [error, seterror] = useState(false);
@@ -30,7 +30,8 @@ const Form = ({addNewExpense}) => {
         id:generate()
     }
 
-    addNewExpense(spent)
+    setExpense(spent)
+    serCreateExpense(true)
 
     //reset Form
     setExpenseName('')
